@@ -7,7 +7,7 @@ require_once 'config/config.php';
 // }
 $success = "";
 $error = "";
-if(count($_POST) > 0) {
+if(isset($_POST['send']) && count($_POST) >0 ) {
     // $username = isset($_POST['username']) ? $_POST['username'] : '';
     // $password = isset($_POST['password']) ? $_POST['password'] : '';
     if(isset($_POST['username'])) {
