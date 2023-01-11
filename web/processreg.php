@@ -13,6 +13,7 @@ if(count($_POST) > 0) {
     $username = isset($_POST['username']) ? $_POST['username'] : '';
     $password = isset($_POST['password']) ? $_POST['password'] : '';
     $comfirm_password = isset($_POST['comfirm_password']) ? $_POST['comfirm_password'] : '';
+    $phone = isset($_POST['phone']) ? $_POST['phone'] : '';
     $address = isset($_POST['address']) ? $_POST['address'] : '';
 
     if(
@@ -22,6 +23,7 @@ if(count($_POST) > 0) {
         $username == '' ||
         $password == '' ||
         $comfirm_password == '' ||
+        $phone == '' ||
         $address == ''
     ){
         echo '<script>
@@ -55,6 +57,8 @@ if(count($_POST) > 0) {
     ];
     $response = curl_post($url, $data);
     $res = json_decode($response, true);
+    // echo '<pre>';
+    // print_r($res); die;
 
     if(!is_array($res)) {
         echo '<script>
