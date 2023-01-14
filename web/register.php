@@ -1,3 +1,5 @@
+<?php require_once 'config/config.php'; ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,7 +12,7 @@
 </head>
 <body>
     
-<div class="container w-50">
+    <div class="container w-50">
         <h1 class="text-info fs-1 mt-3">Register</h1>
         <hr>
         <form action="processreg.php" method="post">
@@ -47,6 +49,8 @@
                 <textarea name="address" class="form-control" cols="30" rows="5"></textarea>
             </div>
             <button type="submit" name="send" class="btn btn-info form-control">Sign Up</button>
+            <hr>
+            <p>If you has been accout <a href="<?php echo BASE_URL; ?>login.php">Click</a> login</p>
         </form>
     </div>
 

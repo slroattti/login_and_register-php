@@ -7,8 +7,6 @@ if(count($_POST) > 0) {
     }
     //ternary configuration
     $lastname = isset($_POST['lastname']) ? $_POST['lastname'] : '';
-    $username = isset($_POST['username']) ? $_POST['username'] : '';
-    $password = isset($_POST['password']) ? $_POST['password'] : '';
     $email = isset($_POST['email']) ? $_POST['email'] : '';
     $username = isset($_POST['username']) ? $_POST['username'] : '';
     $password = isset($_POST['password']) ? $_POST['password'] : '';
@@ -70,7 +68,7 @@ if(count($_POST) > 0) {
     if($res['code'] == 200) {
         echo '<script>
             alert("Successfully registered");
-            window.location.href = "login.php";
+            window.location.href = "register.php";
         </script>';
     } else {
         echo '<script>

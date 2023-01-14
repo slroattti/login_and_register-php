@@ -1,3 +1,4 @@
+<?php require_once 'config/config.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,6 +16,7 @@
     <div class="container w-50">
         <h1 class="text-success fs-1 mt-3">Log In</h1>
         <hr>
+        <!-- action คือ เมื่อทำการกดปุ่ม submit or button มันจะทำการ redirect ไปหาไฟล์ที่เราตั้งไว้ -->
         <form action="processlog.php" method="post">
             <div class="mb-3">
                 <label for="Username" class="form-label">Username</label>
@@ -24,8 +26,11 @@
                 <label for="Password" class="form-label">Password</label>
                 <input type="password" class="form-control" name="password">
             </div>
-            <button type="submit" name="send" class="btn btn-primary form-control">Sign IN</button>
+            <input name="send" class="btn btn-primary form-control" type="submit" value="Sign In">
+            <!-- <button type="submit"  >Sign IN</button> -->
         </form>
+        <hr>
+        <p>If you not has been accout <a href="<?php echo BASE_URL; ?>register.php">Click</a> register</p>
     </div>
 
 </body>

@@ -3,15 +3,18 @@
 require_once 'config/config.php';
 
 // if(isset($_POST['send'])) {
-
+// echo '<pre>';
+// print_r($_POST); die;
+// print_r('จำนวนที่ $_POST จากหน้า form มีการส่งข้อมูลมาก : ' . count($_POST)); die;
 // }
-$success = "";
-$error = "";
-if(isset($_POST['send']) && count($_POST) >0 ) {
+
+if(isset($_POST['send']) && count($_POST) > 0) {
+    //Ternary Operators if and else : ตัวแปล = condition(เงื่อนไข) ?(true) เก็บค่าที่ส่งมา :(false) ค่าว่างหรืออื่นๆ 
     // $username = isset($_POST['username']) ? $_POST['username'] : '';
     // $password = isset($_POST['password']) ? $_POST['password'] : '';
     if(isset($_POST['username'])) {
         $username = $_POST['username'];
+        // echo 'ค่าของ : ' . $username; die;
         if($username == '') {
             echo '<script>
             alert("Please enter your username!");
@@ -28,7 +31,7 @@ if(isset($_POST['send']) && count($_POST) >0 ) {
         </script>';
         }
     }
-
+    
     $url = API_URL . "loginapi.php";
     // echo $url; die;
     $data = [
@@ -36,9 +39,14 @@ if(isset($_POST['send']) && count($_POST) >0 ) {
         'password' => $password,
     ];
     $response = curl_post($url, $data);
+    // print_r($response); die;
+    // json_decode = string to json object
+    // json_encode = json object to string
     $res = json_decode($response, true);
-    // echo '<pre>';
     // print_r($res); die;
+    $data = $res['result'];
+    // echo '<pre>';
+    // print_r($data); die;
     if(!is_array($res)) {
         echo '<script>
             alert("Response is not JSON");
@@ -49,6 +57,7 @@ if(isset($_POST['send']) && count($_POST) >0 ) {
     if($res['code'] == 200) {
         // $success = "successfully logged";
         // header('location: index.php');
+        $_SESSION['username'] = $data['username'];
         echo '<script>
             alert("Successfully logged");
             window.location.href = "index.php";

@@ -9,7 +9,7 @@ if(count($_POST) > 0) {
     if(isset($_POST['password'])) {
         $password = $_POST['password'];
     }
-
+    // array = [] | object = {}
     if($username == "" || $password == "") {
         $response = [
             'code' => 401,

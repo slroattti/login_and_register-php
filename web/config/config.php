@@ -2,8 +2,8 @@
 
 session_start();
 
-define("BASE_URL", "http://localhost/system_test/web/");
-define("API_URL", "http://localhost/system_test/api/");
+define("BASE_URL", "https://fad6-49-237-34-225.ap.ngrok.io/system_test/web/");
+define("API_URL", "https://fad6-49-237-34-225.ap.ngrok.io/system_test/api/");
 
 function curl_post($url, $data) {
     $cURLConnection = curl_init($url);
